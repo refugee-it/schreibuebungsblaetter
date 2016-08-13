@@ -1,0 +1,35 @@
+Schreibübungsblätter für deutsche Buchstaben. LATIN_SMALL_LETTER_SHARP_S fehlt
+immer noch, weil ich keine frei lizenzierte Schriftart finden konnte, bei
+welcher dieser Buchstabe bis unter die Grundlinie geht.
+
+Einfach "make clean" und "make" in einem Terminal in diesem Verzeichnis
+ausführen. Es kann viele verschiedene Versionen und Anpassungen geben, das
+Standard-Paket kann eine Buch-Version bestehend aus allen Buchstaben und eine
+Heft-Version mit jeweils vier Buchstaben (groß und klein) generieren.
+
+  ----
+
+Schreibübungsblätter for German characters. LATIN_SMALL_LETTER_SHARP_S is
+still missing because I couldn't find a libre licensed font with that
+character extended below the baseline. 
+
+Just execute "make clean" and "make" on a terminal in this directory.
+There can be a lot of different versions and adjustments, the default package
+can generate a book version of all characters and booklet versions with four
+characters (capital and small) each.
+
+ ----
+
+Copyright (C) 2016  Stephan Kreutzer
+
+schreibuebungsblaetter of refugee-it.de is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License version 3 or any later version,
+as published by the Free Software Foundation.
+
+schreibuebungsblaetter of refugee-it.de is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Affero General Public License 3 for more details.
+
+You should have received a copy of the GNU Affero General Public License 3
+along with schreibuebungsblaetter of refugee-it.de. If not, see <http://www.gnu.org/licenses/>.
