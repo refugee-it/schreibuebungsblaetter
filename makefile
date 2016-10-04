@@ -1,5 +1,5 @@
 # Copyright (C) 2016  Stephan Kreutzer
-# Creative Commons BY-SA 4.0
+# GNU Affero General Public License 3 or, at your option, any later version of this license.
 # http://www.refugee-it.de
 
 
@@ -17,13 +17,9 @@ all: gesamt_print.pdf $(directories)
 
 
 gesamt_print.pdf: gesamt.pdf titel_print.pdf
-	pdf2ps gesamt.pdf 1.ps
-	psbook 1.ps 2.ps
-	psnup -Pa4 -l -pa3 -2 -s1 2.ps 3.ps
-	ps2pdf -sPAPERSIZE=a3 3.ps gesamt_print.pdf
-	rm 3.ps
-	rm 2.ps
-	rm 1.ps
+	pdfbook --landscape --paper a3paper --outfile gesamt_print_booklet.pdf gesamt.pdf
+	gs -o gesamt_print.pdf -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress gesamt_print_booklet.pdf
+	rm gesamt_print_booklet.pdf
 
 titel_print.pdf: titel.pdf leer.pdf
 	pdfunite ./titel.pdf ./leer.pdf ./leer.pdf ./titel_print.pdf

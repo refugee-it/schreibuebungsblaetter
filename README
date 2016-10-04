@@ -7,6 +7,13 @@ ausführen. Es kann viele verschiedene Versionen und Anpassungen geben, das
 Standard-Paket kann eine Buch-Version bestehend aus allen Buchstaben und eine
 Heft-Version mit jeweils vier Buchstaben (groß und klein) generieren.
 
+Die PDFs, die von pdfbook erzeugt werden, sind irgendwie kaputt
+(Error Name: PDFConversionError, Offending Command: pdfshowpage_finish),
+der Aufruf von gs (GhostScript) besorgt die Reparatur. Eine funktionierende
+Alternative ist
+
+    pdftocairo -pdf heft_1_print_booklet.pdf heft_1_print.pdf
+
   ----
 
 Schreibübungsblätter for German characters. LATIN_SMALL_LETTER_SHARP_S is
@@ -17,6 +24,13 @@ Just execute "make clean" and "make" on a terminal in this directory.
 There can be a lot of different versions and adjustments, the default package
 can generate a book version of all characters and booklet versions with four
 characters (capital and small) each.
+
+The PDFs which result from pdfbook is broken somehow (Error Name:
+PDFConversionError, Offending Command: pdfshowpage_finish),
+the gs (GhostScript) call is there to repair it. A working
+alternative is
+
+    pdftocairo -pdf heft_1_print_booklet.pdf heft_1_print.pdf
 
  ----
 

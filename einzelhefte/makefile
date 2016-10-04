@@ -1,5 +1,5 @@
 # Copyright (C) 2016  Stephan Kreutzer
-# Creative Commons BY-SA 4.0
+# GNU Affero General Public License 3 or, at your option, any later version of this license.
 # http://www.refugee-it.de
 
 
