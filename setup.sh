@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo apt-get install make pdfjam
+sudo apt-get install make make pdfjam psutils

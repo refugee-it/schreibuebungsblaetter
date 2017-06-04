@@ -1,4 +1,4 @@
-# Copyright (C) 2016  Stephan Kreutzer
+# Copyright (C) 2016-2017  Stephan Kreutzer
 # GNU Affero General Public License 3 or, at your option, any later version of this license.
 # http://www.refugee-it.de
 
@@ -12,14 +12,25 @@ directories = ./einzelhefte
 
 
 
-all: gesamt_print.pdf $(directories)
+all: gesamt_print.pdf gesamt_print_booklet.pdf $(directories)
 
 
 
 gesamt_print.pdf: gesamt.pdf titel_print.pdf
-	pdfbook --landscape --paper a3paper --outfile gesamt_print_booklet.pdf gesamt.pdf
-	gs -o gesamt_print.pdf -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress gesamt_print_booklet.pdf
-	rm gesamt_print_booklet.pdf
+	pdf2ps gesamt.pdf gesamt_print_temp_1.ps
+	psbook gesamt_print_temp_1.ps gesamt_print_temp_2.ps
+	psnup -Pa4 -l -pa3 -2 -s1 gesamt_print_temp_2.ps gesamt_print_temp_3.ps
+	ps2pdf -sPAPERSIZE=a3 gesamt_print_temp_3.ps gesamt_print_temp.pdf
+	gs -o gesamt_print.pdf -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress gesamt_print_temp.pdf
+	rm gesamt_print_temp_1.ps
+	rm gesamt_print_temp_2.ps
+	rm gesamt_print_temp_3.ps
+	rm gesamt_print_temp.pdf
+
+gesamt_print_booklet.pdf: gesamt.pdf titel_print.pdf
+	pdfbook --landscape --paper a3paper --outfile gesamt_print_booklet_temp.pdf gesamt.pdf
+	gs -o gesamt_print_booklet.pdf -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress gesamt_print_booklet_temp.pdf
+	rm gesamt_print_booklet_temp.pdf
 
 titel_print.pdf: titel.pdf leer.pdf
 	pdfunite ./titel.pdf ./leer.pdf ./leer.pdf ./titel_print.pdf
@@ -298,9 +309,11 @@ $(directories):
 
 
 clean:
+	rm -f ./gesamt_print_booklet.pdf
 	rm -f ./gesamt_print.pdf
 	rm -f ./gesamt.pdf
 	rm -f ./titel_print.pdf
+	rm -f ./titel.pdf
 	rm -f ./latin_letter_a.pdf
 	rm -f ./latin_letter_b.pdf
 	rm -f ./latin_letter_c.pdf

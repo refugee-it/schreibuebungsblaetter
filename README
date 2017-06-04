@@ -12,7 +12,15 @@ Die PDFs, die von pdfbook erzeugt werden, sind irgendwie kaputt
 der Aufruf von gs (GhostScript) besorgt die Reparatur. Eine funktionierende
 Alternative ist
 
-    pdftocairo -pdf heft_1_print_booklet.pdf heft_1_print.pdf
+    pdftocairo -pdf heft_1_print_booklet.pdf heft_1_print_booklet_repaired.pdf
+
+Es gab hinterher Probleme beim Bearbeiten der ODT-Dateien: Pfeile waren nicht
+mehr richtig positioniert, eine andere Schriftart wurde dargestellt und nach
+PDF exportiert. Die Bearbeitung der ODTs und der Export nach PDF war jedoch
+reproduzierbar erfolgreich auf einem frisch installierten Trisquel 7.0
+(https://trisquel.info), und zwar noch vor der Installation der Abhängigkeiten
+wie in $/setup.sh eingetragen. Nachdem alle PDFs korrekt exportiert wurden,
+spricht nichts dagegen, die PDFs mithilfe der Abhängigkeiten zusammenzusetzen.
 
   ----
 
@@ -30,20 +38,28 @@ PDFConversionError, Offending Command: pdfshowpage_finish),
 the gs (GhostScript) call is there to repair it. A working
 alternative is
 
-    pdftocairo -pdf heft_1_print_booklet.pdf heft_1_print.pdf
+    pdftocairo -pdf heft_1_print_booklet.pdf heft_1_print_booklet_repaired.pdf
+
+There were problems with modifying the ODT files afterwards: arrows weren't
+at their correct position, a different font was displayed and exported to
+PDF. The editing of the ODTs and the export to PDF was successful however on
+a fresh install of Trisquel 7.0 (https://trisquel.info), especially before
+installing the dependencies as specified in $/setup.sh. After all PDFs
+are exported, it should be fine to concatenate them by using the mentioned
+dependencies.
 
  ----
 
-Copyright (C) 2016  Stephan Kreutzer
+Copyright (C) 2016-2017  Stephan Kreutzer
 
-schreibuebungsblaetter of refugee-it.de is free software: you can redistribute it and/or modify
+schreibuebungsblaetter by refugee-it.de is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License version 3 or any later version,
 as published by the Free Software Foundation.
 
-schreibuebungsblaetter of refugee-it.de is distributed in the hope that it will be useful,
+schreibuebungsblaetter by refugee-it.de is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License 3 for more details.
 
 You should have received a copy of the GNU Affero General Public License 3
-along with schreibuebungsblaetter of refugee-it.de. If not, see <http://www.gnu.org/licenses/>.
+along with schreibuebungsblaetter by refugee-it.de. If not, see <http://www.gnu.org/licenses/>.
